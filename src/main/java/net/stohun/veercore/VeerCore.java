@@ -2,6 +2,8 @@ package net.stohun.veercore;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.stohun.veercore.block.ModBlocks;
+import net.stohun.veercore.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +13,7 @@ public class VeerCore implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }

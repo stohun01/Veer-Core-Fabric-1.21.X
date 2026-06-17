@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "veercore:block/dough_block"
+    }
+  }
+}
