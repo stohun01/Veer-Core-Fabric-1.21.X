@@ -1,0 +1,63 @@
+{
+  "multipart": [
+    {
+      "when": { "dnw": "true" },
+      "apply": {
+        "model": "veercore:block/corner"
+      }
+    },
+    {
+      "when": { "dne": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "y": 90
+      }
+    },
+    {
+      "when": { "dse": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "y": 180
+      }
+    },
+    {
+      "when": { "dsw": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "y": 270
+      }
+    },
+
+    {
+      "when": { "unw": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "x": 180,
+        "y": 90
+      }
+    },
+    {
+      "when": { "une": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "x": 180,
+        "y": 180
+      }
+    },
+    {
+      "when": { "use": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "x": 180,
+        "y": 270
+      }
+    },
+    {
+      "when": { "usw": "true" },
+      "apply": {
+        "model": "veercore:block/corner",
+        "x": 180
+      }
+    }
+  ]
+}
