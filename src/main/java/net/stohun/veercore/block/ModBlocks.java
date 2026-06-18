@@ -11,52 +11,22 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.stohun.veercore.VeerCore;
-import net.stohun.veercore.item.CornerBlockItem;
 
 public class ModBlocks {
 
-    public static final Block DOUGH_BLOCK = registerBlock(
-            "dough_block",
-            new Block(AbstractBlock.Settings.create()
-                    .strength(0.8f)
-                    .sounds(BlockSoundGroup.WOOL))
+    public static final Block DOUGH_BLOCK = registerBlock("dough_block",
+            new Block(AbstractBlock.Settings.create().strength(0.8f).sounds(BlockSoundGroup.WOOL))
     );
 
-    public static final CornerBlock CORNER_BLOCK = (CornerBlock) registerCornerBlock(
-            "corner",
+    public static final CornerBlock CORNER_BLOCK = (CornerBlock) registerBlock("corner",
             new CornerBlock(AbstractBlock.Settings.create().strength(1f))
     );
 
     private static Block registerBlock(String name, Block block) {
 
-        Registry.register(
-                Registries.BLOCK,
-                Identifier.of(VeerCore.MOD_ID, name),
-                block
-        );
+        Registry.register(Registries.BLOCK,Identifier.of(VeerCore.MOD_ID, name),block);
 
-        Registry.register(
-                Registries.ITEM,
-                Identifier.of(VeerCore.MOD_ID, name),
-                new BlockItem(block, new Item.Settings())
-        );
-
-        return block;
-    }
-
-    private static Block registerCornerBlock(String name, Block block) {
-
-        Registry.register(
-                Registries.BLOCK,
-                Identifier.of(VeerCore.MOD_ID, name),
-                block
-        );
-
-        Registry.register(
-                Registries.ITEM,
-                Identifier.of(VeerCore.MOD_ID, name),
-                new CornerBlockItem((CornerBlock) block, new Item.Settings())
-        );
+        Registry.register(Registries.ITEM, Identifier.of(VeerCore.MOD_ID, name), new BlockItem(block, new Item.Settings()));
 
         return block;
     }

@@ -3,13 +3,15 @@
     {
       "when": { "dnw": "true" },
       "apply": {
-        "model": "veercore:block/corner"
+        "model": "veercore:block/corner",
+        "uvlock": true
       }
     },
     {
       "when": { "dne": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "y": 90
       }
     },
@@ -17,6 +19,7 @@
       "when": { "dse": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "y": 180
       }
     },
@@ -24,6 +27,7 @@
       "when": { "dsw": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "y": 270
       }
     },
@@ -32,6 +36,7 @@
       "when": { "unw": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "x": 180,
         "y": 90
       }
@@ -40,6 +45,7 @@
       "when": { "une": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "x": 180,
         "y": 180
       }
@@ -48,6 +54,7 @@
       "when": { "use": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "x": 180,
         "y": 270
       }
@@ -56,6 +63,7 @@
       "when": { "usw": "true" },
       "apply": {
         "model": "veercore:block/corner",
+        "uvlock": true,
         "x": 180
       }
     }
