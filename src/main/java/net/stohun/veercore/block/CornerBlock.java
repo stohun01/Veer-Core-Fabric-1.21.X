@@ -3,19 +3,24 @@ package net.stohun.veercore.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class CornerBlock extends Block {
+public class CornerBlock extends Block implements Waterloggable {
     public static final BooleanProperty DNW = BooleanProperty.of("dnw");
     public static final BooleanProperty DNE = BooleanProperty.of("dne");
     public static final BooleanProperty DSW = BooleanProperty.of("dsw");
@@ -25,99 +30,122 @@ public class CornerBlock extends Block {
     public static final BooleanProperty USW = BooleanProperty.of("usw");
     public static final BooleanProperty USE = BooleanProperty.of("use");
 
-    private static final VoxelShape SHAPE_DNW = Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 8.0, 8.0);
-    private static final VoxelShape SHAPE_DNE = Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 8.0, 8.0);
-    private static final VoxelShape SHAPE_DSW = Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 8.0, 16.0);
-    private static final VoxelShape SHAPE_DSE = Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 8.0, 16.0);
-    private static final VoxelShape SHAPE_UNW = Block.createCuboidShape(0.0, 8.0, 0.0, 8.0, 16.0, 8.0);
-    private static final VoxelShape SHAPE_UNE = Block.createCuboidShape(8.0, 8.0, 0.0, 16.0, 16.0, 8.0);
-    private static final VoxelShape SHAPE_USW = Block.createCuboidShape(0.0, 8.0, 8.0, 8.0, 16.0, 16.0);
-    private static final VoxelShape SHAPE_USE = Block.createCuboidShape(8.0, 8.0, 8.0, 16.0, 16.0, 16.0);
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
+    private static final BooleanProperty[] PROPERTIES = {
+            DNW, DNE, DSW, DSE,
+            UNW, UNE, USW, USE
+    };
+
+    private static final VoxelShape[] SHAPES = {
+            Block.createCuboidShape(0, 0, 0, 8, 8, 8),     // DNW
+            Block.createCuboidShape(8, 0, 0, 16, 8, 8),    // DNE
+            Block.createCuboidShape(0, 0, 8, 8, 8, 16),    // DSW
+            Block.createCuboidShape(8, 0, 8, 16, 8, 16),   // DSE
+            Block.createCuboidShape(0, 8, 0, 8, 16, 8),    // UNW
+            Block.createCuboidShape(8, 8, 0, 16, 16, 8),   // UNE
+            Block.createCuboidShape(0, 8, 8, 8, 16, 16),   // USW
+            Block.createCuboidShape(8, 8, 8, 16, 16, 16)   // USE
+    };
+
+    private static final VoxelShape[] STATE_INDEX_TO_SHAPE = new VoxelShape[256];
 
     public CornerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState()
-                .with(DNW, false).with(DNE, false)
-                .with(DSW, false).with(DSE, false)
-                .with(UNW, false).with(UNE, false)
-                .with(USW, false).with(USE, false));
+
+        setDefaultState(getStateManager().getDefaultState()
+                .with(DNW, false).with(DNE, false).with(DSW, false).with(DSE, false)
+                .with(UNW, false).with(UNE, false).with(USW, false).with(USE, false)
+                .with(WATERLOGGED, false));
+
+        runShapePrecalculation();
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(DNW, DNE, DSW, DSE, UNW, UNE, USW, USE);
+        builder.add(DNW, DNE, DSW, DSE, UNW, UNE, USW, USE, WATERLOGGED);
     }
 
-    private static boolean isFull(BlockState state) {
-        return state.get(DNW) && state.get(DNE) && state.get(DSW) && state.get(DSE)
-                && state.get(UNW) && state.get(UNE) && state.get(USW) && state.get(USE);
+    private void runShapePrecalculation() {
+        for (BlockState state : getStateManager().getStates()) {
+            if (state.get(WATERLOGGED)) continue;
+
+            int index = getShapeIndex(state);
+
+            if (index == 255) {
+                STATE_INDEX_TO_SHAPE[index] = VoxelShapes.fullCube();
+                continue;
+            }
+
+            VoxelShape combinedShape = VoxelShapes.empty();
+            for (int i = 0; i < PROPERTIES.length; i++) {
+                if (state.get(PROPERTIES[i])) {
+                    combinedShape = VoxelShapes.union(combinedShape, SHAPES[i]);
+                }
+            }
+
+            STATE_INDEX_TO_SHAPE[index] = combinedShape.simplify();
+        }
+    }
+
+    private static int getShapeIndex(BlockState state) {
+        int index = 0;
+        for (int i = 0; i < PROPERTIES.length; i++) {
+            if (state.get(PROPERTIES[i])) {
+                index |= (1 << i);
+            }
+        }
+        return index;
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (isFull(state)) return VoxelShapes.fullCube();
+        return STATE_INDEX_TO_SHAPE[getShapeIndex(state)];
+    }
 
-        VoxelShape shape = VoxelShapes.empty();
-        if (state.get(DNW)) shape = VoxelShapes.union(shape, SHAPE_DNW);
-        if (state.get(DNE)) shape = VoxelShapes.union(shape, SHAPE_DNE);
-        if (state.get(DSW)) shape = VoxelShapes.union(shape, SHAPE_DSW);
-        if (state.get(DSE)) shape = VoxelShapes.union(shape, SHAPE_DSE);
-        if (state.get(UNW)) shape = VoxelShapes.union(shape, SHAPE_UNW);
-        if (state.get(UNE)) shape = VoxelShapes.union(shape, SHAPE_UNE);
-        if (state.get(USW)) shape = VoxelShapes.union(shape, SHAPE_USW);
-        if (state.get(USE)) shape = VoxelShapes.union(shape, SHAPE_USE);
-        return shape;
+    private static boolean isFull(BlockState state) {
+        return getShapeIndex(state) == 255;
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return this.getOutlineShape(state, world, pos, context);
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
-    private static BooleanProperty cornerFor(double offX, double offY, double offZ) {
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) {
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    private static BooleanProperty getTargetedCorner(ItemPlacementContext ctx) {
+        BlockPos pos = ctx.getBlockPos();
+        Direction face = ctx.getSide();
+        Vec3d hit = ctx.getHitPos();
+
+        double offX = hit.x - pos.getX();
+        double offY = hit.y - pos.getY();
+        double offZ = hit.z - pos.getZ();
+
+        if (face != Direction.SOUTH && face != Direction.EAST && face != Direction.UP) {
+            offX += face.getOffsetX() * 0.5;
+            offY += face.getOffsetY() * 0.5;
+            offZ += face.getOffsetZ() * 0.5;
+        }
+
         boolean east = offX >= 0.5;
         boolean up = offY >= 0.5;
         boolean south = offZ >= 0.5;
 
         if (up) {
-            if (south && east) return USE;
-            if (south) return USW;
-            if (east) return UNE;
-            return UNW;
+            if (south) return east ? USE : USW;
+            return east ? UNE : UNW;
         } else {
-            if (south && east) return DSE;
-            if (south) return DSW;
-            if (east) return DNE;
-            return DNW;
+            if (south) return east ? DSE : DSW;
+            return east ? DNE : DNW;
         }
-    }
-
-    private static double localOffset(double hit, int origin, int step) {
-        return hit - origin + step * 0.5;
-    }
-
-    private static double placementOffsetX(Direction face, double hitX, BlockPos pos) {
-        return switch (face) {
-            case EAST -> 0.0;
-            case WEST -> 1.0;
-            default -> hitX - pos.getX();
-        };
-    }
-
-    private static double placementOffsetY(Direction face, double hitY, BlockPos pos) {
-        return switch (face) {
-            case UP -> 0.0;
-            case DOWN -> 1.0;
-            default -> hitY - pos.getY();
-        };
-    }
-
-    private static double placementOffsetZ(Direction face, double hitZ, BlockPos pos) {
-        return switch (face) {
-            case SOUTH -> 0.0;
-            case NORTH -> 1.0;
-            default -> hitZ - pos.getZ();
-        };
     }
 
     @Nullable
@@ -125,48 +153,30 @@ public class CornerBlock extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockPos pos = ctx.getBlockPos();
         BlockState here = ctx.getWorld().getBlockState(pos);
-        Vec3d hit = ctx.getHitPos();
-        Direction face = ctx.getSide();
+        BooleanProperty corner = getTargetedCorner(ctx);
 
-        double offX = localOffset(hit.x, pos.getX(), face.getOffsetX());
-        double offY = localOffset(hit.y, pos.getY(), face.getOffsetY());
-        double offZ = localOffset(hit.z, pos.getZ(), face.getOffsetZ());
+        boolean fluidIsWater = ctx.getWorld().getFluidState(pos).getFluid() == Fluids.WATER;
 
         if (here.isOf(this)) {
-            BooleanProperty corner = cornerFor(offX, offY, offZ);
-            return here.with(corner, true);
+            BlockState updatedState = here.with(corner, true);
+            if (isFull(updatedState)) {
+                return updatedState.with(WATERLOGGED, false);
+            }
+            return updatedState;
         }
 
-        BooleanProperty corner = cornerFor(
-                placementOffsetX(face, hit.x, pos),
-                placementOffsetY(face, hit.y, pos),
-                placementOffsetZ(face, hit.z, pos));
-
-        return this.getDefaultState()
-                .with(DNW, false).with(DNE, false)
-                .with(DSW, false).with(DSE, false)
-                .with(UNW, false).with(UNE, false)
-                .with(USW, false).with(USE, false)
-                .with(corner, true);
+        BlockState defaultPlacement = getDefaultState().with(corner, true);
+        return defaultPlacement.with(WATERLOGGED, fluidIsWater && !isFull(defaultPlacement));
     }
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext ctx) {
         ItemStack stack = ctx.getStack();
-        if (!stack.isOf(this.asItem())) return false;
-        if (isFull(state)) return false;
 
-        if (!ctx.getBlockPos().equals(ctx.getBlockPos())) return true;
+        if (!stack.isOf(this.asItem()) || isFull(state)) {
+            return false;
+        }
 
-        Vec3d hit = ctx.getHitPos();
-        BlockPos pos = ctx.getBlockPos();
-        Direction face = ctx.getSide();
-
-        double offX = localOffset(hit.x, pos.getX(), face.getOffsetX());
-        double offY = localOffset(hit.y, pos.getY(), face.getOffsetY());
-        double offZ = localOffset(hit.z, pos.getZ(), face.getOffsetZ());
-
-        BooleanProperty corner = cornerFor(offX, offY, offZ);
-        return !state.get(corner);
+        return !state.get(getTargetedCorner(ctx));
     }
 }
