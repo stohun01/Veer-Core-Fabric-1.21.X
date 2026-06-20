@@ -1,0 +1,15 @@
+{
+	"__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
+	"textures": {
+		"down": "block/iron_block"
+	},
+	"elements": [ 	 
+		{
+			"from": [ 0, 8, 0 ],
+			"to": [ 8, 16, 8 ],
+			"faces": {
+				"down": { "uv": [ 0, 8, 8, 16 ], "texture": "#down"}
+			}
+		}
+	]
+}

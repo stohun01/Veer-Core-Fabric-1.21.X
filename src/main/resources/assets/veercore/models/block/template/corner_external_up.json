@@ -1,0 +1,18 @@
+{
+	"__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
+	"textures": {
+		"up": "block/iron_block",
+		"side": "block/emerald_block"
+	},
+	"elements": [ 	 
+		{
+			"from": [ 0, 8, 0 ],
+			"to": [ 8, 16, 8 ],
+			"faces": {
+				"up":    { "uv": [ 0, 0, 8, 8 ], "texture": "#up", "cullface": "up" },
+				"north": { "uv": [ 8, 0, 16, 8 ], "texture": "#side", "cullface": "north" },
+				"west":  { "uv": [ 0, 0, 8, 8 ], "texture": "#side", "cullface": "west" }
+			}
+		}
+	]
+}

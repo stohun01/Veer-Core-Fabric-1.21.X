@@ -3,5 +3,6 @@
   "item.veercore.raw_emerald": "Raw Emerald",
   "block.veercore.dough_block": "Dough Block",
   "block.veercore.corner": "Corner",
-  "block.veercore.stone_corner": "Stone Corner"
+  "block.veercore.stone_corner": "Stone Corner",
+  "block.veercore.sandstone_corner": "Sandstone Corner"
 }

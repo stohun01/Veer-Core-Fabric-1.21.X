@@ -1,0 +1,18 @@
+{
+	"__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
+	"textures": {
+		"down": "block/gold_block",
+		"side": "block/diamond_block"
+	},
+	"elements": [ 	 
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 8, 8, 8 ],
+			"faces": {
+				"down":  { "uv": [ 0, 8, 8, 16 ], "texture": "#down", "cullface": "down" },
+				"north": { "uv": [ 8, 8, 16, 16 ], "texture": "#side", "cullface": "north" },
+				"west":  { "uv": [ 0, 8, 8, 16 ], "texture": "#side", "cullface": "west" }
+			}
+		}
+	]
+}

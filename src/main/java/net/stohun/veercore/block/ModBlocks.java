@@ -26,6 +26,10 @@ public class ModBlocks {
             new CornerBlock(AbstractBlock.Settings.create().strength(1f))
     );
 
+    public static final CornerBlock SANDSTONE_CORNER = (CornerBlock) registerBlock("sandstone_corner",
+            new CornerBlock(AbstractBlock.Settings.create().strength(1f))
+    );
+
     private static Block registerBlock(String name, Block block) {
 
         Registry.register(Registries.BLOCK,Identifier.of(VeerCore.MOD_ID, name),block);
@@ -42,6 +46,7 @@ public class ModBlocks {
             entries.add(DOUGH_BLOCK);
             entries.add(CORNER_BLOCK);
             entries.add(STONE_CORNER);
+            entries.add(SANDSTONE_CORNER);
         });
     }
 }
