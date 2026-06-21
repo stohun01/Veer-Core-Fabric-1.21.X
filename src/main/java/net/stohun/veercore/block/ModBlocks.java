@@ -1,6 +1,7 @@
 package net.stohun.veercore.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
@@ -18,6 +19,10 @@ public class ModBlocks {
 
     public static final Block DOUGH_BLOCK = registerBlock("dough_block",
             new Block(AbstractBlock.Settings.create().strength(0.8f).sounds(BlockSoundGroup.WOOL))
+    );
+
+    public static final CornerBlock OAK_CORNER = (CornerBlock) registerBlock("oak_corner",
+            new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable())
     );
 
     public static final CornerBlock BRICK_CORNER = (CornerBlock) registerBlock("brick_corner",
@@ -44,8 +49,11 @@ public class ModBlocks {
     public static void registerModBlocks() {
         VeerCore.LOGGER.info("Registering Mod Blocks for " + VeerCore.MOD_ID);
 
+        FlammableBlockRegistry.getDefaultInstance().add(OAK_CORNER, 5, 20);
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(DOUGH_BLOCK);
+            entries.add(OAK_CORNER);
             entries.add(BRICK_CORNER);
             entries.add(SANDSTONE_CORNER);
             entries.add(STONE_CORNER);
