@@ -1,8 +1,7 @@
 {
 	"__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"up": "block/iron_block",
-		"side": "block/emerald_block"
+		"particle": "#side"
 	},
 	"elements": [ 	 
 		{

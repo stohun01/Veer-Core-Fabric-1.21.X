@@ -1,0 +1,6 @@
+{
+	"parent": "veercore:block/template/corner_internal_side",
+	"textures": {
+		"side": "block/bricks"
+	}
+}

@@ -1,3 +1,8 @@
 {
-  "parent": "veercore:block/stone_corner"
+  "parent": "veercore:block/template/corner_item",
+  "textures": {
+    "up": "block/stone",
+    "down": "block/stone",
+    "side": "block/stone"
+  }
 }

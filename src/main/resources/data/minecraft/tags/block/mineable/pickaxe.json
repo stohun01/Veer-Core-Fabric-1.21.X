@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "veercore:brick_corner",
+    "veercore:sandstone_corner",
+    "veercore:stone_corner"
+  ]
+}

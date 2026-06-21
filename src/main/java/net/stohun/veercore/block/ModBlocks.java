@@ -3,6 +3,8 @@ package net.stohun.veercore.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -18,16 +20,16 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(0.8f).sounds(BlockSoundGroup.WOOL))
     );
 
-    public static final CornerBlock CORNER_BLOCK = (CornerBlock) registerBlock("corner",
-            new CornerBlock(AbstractBlock.Settings.create().strength(1f))
-    );
-
-    public static final CornerBlock STONE_CORNER = (CornerBlock) registerBlock("stone_corner",
-            new CornerBlock(AbstractBlock.Settings.create().strength(1f))
+    public static final CornerBlock BRICK_CORNER = (CornerBlock) registerBlock("brick_corner",
+            new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.RED).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F))
     );
 
     public static final CornerBlock SANDSTONE_CORNER = (CornerBlock) registerBlock("sandstone_corner",
-            new CornerBlock(AbstractBlock.Settings.create().strength(1f))
+            new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F))
+    );
+
+    public static final CornerBlock STONE_CORNER = (CornerBlock) registerBlock("stone_corner",
+            new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(2.0F, 6.0F))
     );
 
     private static Block registerBlock(String name, Block block) {
@@ -44,9 +46,9 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(DOUGH_BLOCK);
-            entries.add(CORNER_BLOCK);
-            entries.add(STONE_CORNER);
+            entries.add(BRICK_CORNER);
             entries.add(SANDSTONE_CORNER);
+            entries.add(STONE_CORNER);
         });
     }
 }

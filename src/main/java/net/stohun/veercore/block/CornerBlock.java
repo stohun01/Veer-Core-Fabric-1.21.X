@@ -11,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -178,5 +180,56 @@ public class CornerBlock extends Block implements Waterloggable {
         }
 
         return !state.get(getTargetedCorner(ctx));
+    }
+
+    @Override
+    protected BlockState rotate(BlockState state, BlockRotation rotation) {
+        if (rotation == BlockRotation.NONE) {
+            return state;
+        }
+
+        boolean dnw = state.get(DNW);
+        boolean dne = state.get(DNE);
+        boolean dsw = state.get(DSW);
+        boolean dse = state.get(DSE);
+        boolean unw = state.get(UNW);
+        boolean une = state.get(UNE);
+        boolean usw = state.get(USW);
+        boolean use = state.get(USE);
+
+        return switch (rotation) {
+            case CLOCKWISE_90 -> state
+                    .with(DNW, dsw).with(DNE, dnw).with(DSE, dne).with(DSW, dse)
+                    .with(UNW, usw).with(UNE, unw).with(USE, une).with(USW, use);
+            case CLOCKWISE_180 -> state
+                    .with(DNW, dse).with(DNE, dsw).with(DSE, dnw).with(DSW, dne)
+                    .with(UNW, use).with(UNE, usw).with(USE, unw).with(USW, une);
+            case COUNTERCLOCKWISE_90 -> state
+                    .with(DNW, dne).with(DNE, dse).with(DSE, dsw).with(DSW, dnw)
+                    .with(UNW, une).with(UNE, use).with(USE, usw).with(USW, unw);
+            default -> state;
+        };
+    }
+
+    @Override
+    protected BlockState mirror(BlockState state, BlockMirror mirror) {
+        boolean dnw = state.get(DNW);
+        boolean dne = state.get(DNE);
+        boolean dsw = state.get(DSW);
+        boolean dse = state.get(DSE);
+        boolean unw = state.get(UNW);
+        boolean une = state.get(UNE);
+        boolean usw = state.get(USW);
+        boolean use = state.get(USE);
+
+        return switch (mirror) {
+            case LEFT_RIGHT -> state
+                    .with(DNW, dsw).with(DNE, dse).with(DSW, dnw).with(DSE, dne)
+                    .with(UNW, usw).with(UNE, use).with(USW, unw).with(USE, une);
+            case FRONT_BACK -> state
+                    .with(DNW, dne).with(DNE, dnw).with(DSW, dse).with(DSE, dsw)
+                    .with(UNW, une).with(UNE, unw).with(USW, use).with(USE, usw);
+            default -> state;
+        };
     }
 }
