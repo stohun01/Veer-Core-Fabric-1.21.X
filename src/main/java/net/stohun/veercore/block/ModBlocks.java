@@ -21,6 +21,10 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(0.8f).sounds(BlockSoundGroup.WOOL))
     );
 
+    public static final CornerBlock APPLE_CORNER = (CornerBlock) registerBlock("apple_corner",
+            new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.RED).strength(2.0F, 6.0F))
+    );
+
     public static final CornerBlock OAK_CORNER = (CornerBlock) registerBlock("oak_corner",
             new CornerBlock(AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable())
     );
@@ -53,6 +57,7 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(DOUGH_BLOCK);
+            entries.add(APPLE_CORNER);
             entries.add(OAK_CORNER);
             entries.add(BRICK_CORNER);
             entries.add(SANDSTONE_CORNER);

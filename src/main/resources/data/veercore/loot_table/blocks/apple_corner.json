@@ -1,0 +1,130 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "veercore:apple_corner",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "dnw": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "dne": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "dsw": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "dse": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "unw": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "une": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "usw": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "veercore:apple_corner",
+                  "properties": { "use": "true" }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": -1.0
+              },
+              "add": true
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "veercore:blocks/apple_corner"
+}

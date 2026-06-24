@@ -1,0 +1,7 @@
+{
+	"parent": "veercore:block/template/corner_external_up",
+	"textures": {
+		"up": "veercore:block/apple_top",
+		"side": "veercore:block/apple"
+	}
+}
