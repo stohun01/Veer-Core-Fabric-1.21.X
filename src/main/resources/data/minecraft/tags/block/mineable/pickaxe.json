@@ -1,8 +1,7 @@
 {
   "replace": false,
   "values": [
-    "veercore:brick_corner",
-    "veercore:sandstone_corner",
-    "veercore:stone_corner"
+    "veercore:wrought_iron_block",
+    "veercore:wrought_iron_corner"
   ]
 }

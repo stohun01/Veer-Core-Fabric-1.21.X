@@ -1,0 +1,8 @@
+{
+  "parent": "veercore:block/template/corner_item",
+  "textures": {
+    "down": "veercore:block/wrought_iron_block",
+    "side": "veercore:block/wrought_iron_block",
+    "up": "veercore:block/wrought_iron_block"
+  }
+}

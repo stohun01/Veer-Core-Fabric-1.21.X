@@ -1,7 +1,0 @@
-{
-	"parent": "veercore:block/template/corner_external_down",
-	"textures": {
-		"down": "block/sandstone_bottom",
-		"side": "block/sandstone"
-	}
-}

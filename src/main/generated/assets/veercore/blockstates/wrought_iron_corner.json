@@ -1,0 +1,348 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_down",
+        "uvlock": true
+      },
+      "when": {
+        "dnw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_down",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "dne": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_down",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "dse": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_down",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "dsw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_up",
+        "uvlock": true
+      },
+      "when": {
+        "unw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_up",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "une": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_up",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "use": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_external_up",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "usw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_up",
+        "uvlock": true
+      },
+      "when": {
+        "dnw": "true",
+        "unw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_up",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "dne": "true",
+        "une": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_up",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "dse": "true",
+        "use": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_up",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "dsw": "true",
+        "usw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_down",
+        "uvlock": true
+      },
+      "when": {
+        "dnw": "false",
+        "unw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_down",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "dne": "false",
+        "une": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_down",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "dse": "false",
+        "use": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_down",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "dsw": "false",
+        "usw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true
+      },
+      "when": {
+        "dnw": "true",
+        "dsw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "dne": "true",
+        "dnw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "dne": "false",
+        "dse": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "dse": "false",
+        "dsw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true
+      },
+      "when": {
+        "dne": "false",
+        "dnw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "dne": "true",
+        "dse": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "dse": "true",
+        "dsw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "dnw": "false",
+        "dsw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "x": 180,
+        "y": 90
+      },
+      "when": {
+        "une": "false",
+        "unw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "x": 180,
+        "y": 180
+      },
+      "when": {
+        "une": "true",
+        "use": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "x": 180,
+        "y": 270
+      },
+      "when": {
+        "use": "true",
+        "usw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side",
+        "uvlock": true,
+        "x": 180
+      },
+      "when": {
+        "unw": "false",
+        "usw": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "x": 180,
+        "y": 90
+      },
+      "when": {
+        "unw": "true",
+        "usw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "x": 180,
+        "y": 180
+      },
+      "when": {
+        "une": "true",
+        "unw": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "x": 180,
+        "y": 270
+      },
+      "when": {
+        "une": "false",
+        "use": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "veercore:block/wrought_iron_corner_internal_side_other",
+        "uvlock": true,
+        "x": 180
+      },
+      "when": {
+        "use": "false",
+        "usw": "true"
+      }
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "dnw": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "dne": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "dse": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "dsw": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "unw": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "une": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "use": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "veercore:wrought_iron_corner",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "usw": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "count": -1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "veercore:wrought_iron_corner"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
