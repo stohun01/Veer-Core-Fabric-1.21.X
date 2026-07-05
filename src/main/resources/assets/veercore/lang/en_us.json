@@ -1,4 +1,8 @@
 {
+  "item.veercore.food_icon": "Food",
+  "item.veercore.gear_icon": "Gear",
+  "item.veercore.light_icon": "Light",
+  "item.veercore.tech_icon": "Tech",
   "item.veercore.acid": "Acid",
   "item.veercore.raw_emerald": "Raw Emerald",
   "block.veercore.dough_block": "Dough Block",

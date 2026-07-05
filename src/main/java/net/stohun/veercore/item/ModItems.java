@@ -11,6 +11,10 @@ import net.stohun.veercore.VeerCore;
 public class ModItems {
     public static final Item ACID = registerItem("acid", new Item(new Item.Settings()));
     public static final Item RAW_EMERALD = registerItem("raw_emerald", new Item(new Item.Settings()));
+    public static final Item FOOD_ICON = registerItem("food_icon", new Item(new Item.Settings()));
+    public static final Item GEAR_ICON = registerItem("gear_icon", new Item(new Item.Settings()));
+    public static final Item LIGHT_ICON = registerItem("light_icon", new Item(new Item.Settings()));
+    public static final Item TECH_ICON = registerItem("tech_icon", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(VeerCore.MOD_ID, name), item);
