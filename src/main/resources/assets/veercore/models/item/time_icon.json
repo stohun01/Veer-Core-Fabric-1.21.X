@@ -1,0 +1,6 @@
+{
+  "parent": "veercore:item/icon_template",
+  "textures": {
+    "texture": "veercore:item/time_icon"
+  }
+}

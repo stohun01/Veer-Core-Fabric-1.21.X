@@ -1,8 +1,12 @@
 {
+  "item.veercore.color_icon": "Color",
   "item.veercore.food_icon": "Food",
   "item.veercore.gear_icon": "Gear",
   "item.veercore.light_icon": "Light",
+  "item.veercore.search_icon": "Search",
   "item.veercore.tech_icon": "Tech",
+  "item.veercore.thunder_icon": "Thunder",
+  "item.veercore.time_icon": "Time",
   "item.veercore.acid": "Acid",
   "item.veercore.raw_emerald": "Raw Emerald",
   "block.veercore.dough_block": "Dough Block",
