@@ -19,6 +19,8 @@ public class ModItems {
     public static final Item TECH_ICON = registerItem("tech_icon", new Item(new Item.Settings()));
     public static final Item THUNDER_ICON = registerItem("thunder_icon", new Item(new Item.Settings()));
     public static final Item TIME_ICON = registerItem("time_icon", new Item(new Item.Settings()));
+    public static final Item TRADE_ICON = registerItem("trade_icon", new Item(new Item.Settings()));
+    public static final Item MOB_ICON = registerItem("mob_icon", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(VeerCore.MOD_ID, name), item);
