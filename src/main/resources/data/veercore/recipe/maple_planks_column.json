@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "wilderwild:stripped_maple_log"
+    }
+  },
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 6,
+    "id": "veercore:maple_planks_column"
+  }
+}

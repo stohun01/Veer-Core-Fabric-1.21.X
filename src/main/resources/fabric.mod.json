@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "veercore",
-	"version": "0.3",
+	"version": "0.4",
 	"name": "Veer Core",
 	"description": "Features for the Veer modpack",
 	"authors": [

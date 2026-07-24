@@ -1,0 +1,46 @@
+{
+	"__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
+	"parent": "block/block",
+	"elements": [
+		{
+			"from": [ 3, 0, 3 ],
+			"to": [ 8, 16, 8 ],
+			"faces": {
+				"down":  { "uv": [ 0, 11, 5, 16 ], "texture": "#end", "cullface": "down" },
+				"up":    { "uv": [ 0, 0, 5, 5 ], "texture": "#end", "cullface": "up" },
+				"north": { "uv": [ 1, 0, 6, 16 ], "texture": "#side", "rotation": 180 },
+				"west":  { "uv": [ 1, 0, 6, 16 ], "texture": "#side" }
+			}
+		},
+		{
+			"from": [ 8, 0, 3 ],
+			"to": [ 13, 16, 8 ],
+			"faces": {
+				"down":  { "uv": [ 11, 11, 16, 16 ], "texture": "#end", "cullface": "down" },
+				"up":    { "uv": [ 11, 0, 16, 5 ], "texture": "#end", "cullface": "up" },
+				"north": { "uv": [ 1, 0, 6, 16 ], "texture": "#side" },
+				"east":  { "uv": [ 1, 0, 6, 16 ], "texture": "#side", "rotation": 180 }
+			}
+		},
+		{
+			"from": [ 3, 0, 8 ],
+			"to": [ 8, 16, 13 ],
+			"faces": {
+				"down":  { "uv": [ 0, 0, 5, 5 ], "texture": "#end", "cullface": "down" },
+				"up":    { "uv": [ 0, 11, 5, 16 ], "texture": "#end", "cullface": "up" },
+				"south": { "uv": [ 1, 0, 6, 16 ], "texture": "#side" },
+				"west":  { "uv": [ 1, 0, 6, 16 ], "texture": "#side", "rotation": 180 }
+			}
+		},
+		{
+			"from": [ 8, 0, 8 ],
+			"to": [ 13, 16, 13 ],
+			"faces": {
+				"down":  { "uv": [ 11, 0, 16, 5 ], "texture": "#end", "cullface": "down" },
+				"up":    { "uv": [ 11, 11, 16, 16 ], "texture": "#end", "cullface": "up" },
+				"south": { "uv": [ 1, 0, 6, 16 ], "texture": "#side", "rotation": 180 },
+				"east":  { "uv": [ 1, 0, 6, 16 ], "texture": "#side" }
+			}
+		}
+	]
+}

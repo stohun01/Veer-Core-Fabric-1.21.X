@@ -1,0 +1,9 @@
+{
+  "__comment": "Designed by Stohun with Cubik Studio - https://cubik.studio",
+  "parent": "veercore:block/template/column_beam",
+  "textures": {
+    "particle": "#side",
+    "end": "everycomp:block/db/wilderwild/maple_beam_end",
+    "side": "everycomp:block/db/wilderwild/maple_beam_side"
+  }
+}
