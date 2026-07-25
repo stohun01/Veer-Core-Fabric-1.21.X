@@ -46,8 +46,23 @@ public class ModBlocks {
     public static final CornerBlock WROUGHT_IRON_CORNER = (CornerBlock) registerBlock("wrought_iron_corner",
             new CornerBlock(AbstractBlock.Settings.copy(ModBlocks.WROUGHT_IRON_BLOCK)));
 
+    public static final ColumnBlock PALE_OAK_PLANKS_COLUMN = (ColumnBlock) registerBlock("pale_oak_planks_column",
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.OFF_WHITE)));
+
     public static final ColumnBlock MAPLE_PLANKS_COLUMN = (ColumnBlock) registerBlock("maple_planks_column",
-            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.BROWN)));
+
+    public static final ColumnBlock PALM_PLANKS_COLUMN = (ColumnBlock) registerBlock("palm_planks_column",
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.TERRACOTTA_RED)));
+
+    public static final ColumnBlock SILVER_BIRCH_PLANKS_COLUMN = (ColumnBlock) registerBlock("silver_birch_planks_column",
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.LIGHT_GRAY)));
+
+    public static final ColumnBlock SLUMBER_PLANKS_COLUMN = (ColumnBlock) registerBlock("slumber_planks_column",
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.TERRACOTTA_CYAN)));
+
+    public static final ColumnBlock WILLOW_PLANKS_COLUMN = (ColumnBlock) registerBlock("willow_planks_column",
+            new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_GREEN)));
 
     private static Block registerBlock(String name, Block block) {
 
@@ -61,16 +76,31 @@ public class ModBlocks {
     public static void registerModBlocks() {
         VeerCore.LOGGER.info("Registering Mod Blocks for " + VeerCore.MOD_ID);
 
+        FlammableBlockRegistry.getDefaultInstance().add(PALE_OAK_PLANKS_COLUMN, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(MAPLE_PLANKS_COLUMN, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(PALM_PLANKS_COLUMN, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(SILVER_BIRCH_PLANKS_COLUMN, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(SLUMBER_PLANKS_COLUMN, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(WILLOW_PLANKS_COLUMN, 5, 20);
 
+        FuelRegistry.INSTANCE.add(PALE_OAK_PLANKS_COLUMN, 150);
         FuelRegistry.INSTANCE.add(MAPLE_PLANKS_COLUMN, 150);
+        FuelRegistry.INSTANCE.add(PALM_PLANKS_COLUMN, 150);
+        FuelRegistry.INSTANCE.add(SILVER_BIRCH_PLANKS_COLUMN, 150);
+        FuelRegistry.INSTANCE.add(SLUMBER_PLANKS_COLUMN, 150);
+        FuelRegistry.INSTANCE.add(WILLOW_PLANKS_COLUMN, 150);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.add(DOUGH_BLOCK);
             entries.add(APPLE_CORNER);
             entries.add(WROUGHT_IRON_BLOCK);
             entries.add(WROUGHT_IRON_CORNER);
+            entries.add(PALE_OAK_PLANKS_COLUMN);
             entries.add(MAPLE_PLANKS_COLUMN);
+            entries.add(PALM_PLANKS_COLUMN);
+            entries.add(SILVER_BIRCH_PLANKS_COLUMN);
+            entries.add(SLUMBER_PLANKS_COLUMN);
+            entries.add(WILLOW_PLANKS_COLUMN);
         });
     }
 }

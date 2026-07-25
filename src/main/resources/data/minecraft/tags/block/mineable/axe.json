@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "veercore:maple_planks_column"
+    "veercore:pale_oak_planks_column",
+    "veercore:maple_planks_column",
+    "veercore:palm_planks_column",
+    "veercore:silver_birch_planks_column",
+    "veercore:slumber_planks_column",
+    "veercore:willow_planks_column"
   ]
 }

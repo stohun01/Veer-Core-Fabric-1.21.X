@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "minecraft:stripped_pale_oak_log"
+    }
+  },
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 6,
+    "id": "veercore:pale_oak_planks_column"
+  }
+}

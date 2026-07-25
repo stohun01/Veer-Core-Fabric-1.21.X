@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "wilderwild:stripped_baobab_log"
+    }
+  },
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 6,
+    "id": "veercore:slumber_planks_column"
+  }
+}

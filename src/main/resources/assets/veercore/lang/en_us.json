@@ -15,5 +15,10 @@
   "block.veercore.apple_corner": "Apple Block",
   "block.veercore.wrought_iron_block": "Wrought Iron Block",
   "block.veercore.wrought_iron_corner": "Wrought Iron Corner",
-  "block.veercore.maple_planks_column": "Maple Column"
+  "block.veercore.pale_oak_planks_column": "Pale Oak Column",
+  "block.veercore.maple_planks_column": "Maple Column",
+  "block.veercore.palm_planks_column": "Palm Column",
+  "block.veercore.silver_birch_planks_column": "Silver Birch Column",
+  "block.veercore.slumber_planks_column": "Slumber Column",
+  "block.veercore.willow_planks_column": "Willow Column"
 }

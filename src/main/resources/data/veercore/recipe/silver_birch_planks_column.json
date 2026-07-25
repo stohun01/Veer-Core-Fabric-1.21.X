@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "wilderwild:stripped_cypress_log"
+    }
+  },
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 6,
+    "id": "veercore:silver_birch_planks_column"
+  }
+}
