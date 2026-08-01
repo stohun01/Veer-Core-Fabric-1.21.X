@@ -3,10 +3,7 @@ package net.stohun.veercore.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.MapColor;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -64,6 +61,24 @@ public class ModBlocks {
     public static final ColumnBlock WILLOW_PLANKS_COLUMN = (ColumnBlock) registerBlock("willow_planks_column",
             new ColumnBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_GREEN)));
 
+    public static final SquidEggsBlock SQUID_EGGS = (SquidEggsBlock) registerBlock("squid_eggs",
+            new SquidEggsBlock(AbstractBlock.Settings.copy(Blocks.SEAGRASS)));
+
+    public static final Block MOIST_TUBE_CORAL_BLOCK = (Block) registerBlock("moist_tube_coral_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.TUBE_CORAL_BLOCK)));
+
+    public static final Block MOIST_BRAIN_CORAL_BLOCK = (Block) registerBlock("moist_brain_coral_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.BRAIN_CORAL_BLOCK)));
+
+    public static final Block MOIST_BUBBLE_CORAL_BLOCK = (Block) registerBlock("moist_bubble_coral_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.BUBBLE_CORAL_BLOCK)));
+
+    public static final Block MOIST_FIRE_CORAL_BLOCK = (Block) registerBlock("moist_fire_coral_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.FIRE_CORAL_BLOCK)));
+
+    public static final Block MOIST_HORN_CORAL_BLOCK = (Block) registerBlock("moist_horn_coral_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.HORN_CORAL_BLOCK)));
+
     private static Block registerBlock(String name, Block block) {
 
         Registry.register(Registries.BLOCK,Identifier.of(VeerCore.MOD_ID, name),block);
@@ -101,6 +116,15 @@ public class ModBlocks {
             entries.add(SILVER_BIRCH_PLANKS_COLUMN);
             entries.add(SLUMBER_PLANKS_COLUMN);
             entries.add(WILLOW_PLANKS_COLUMN);
+            entries.add(MOIST_TUBE_CORAL_BLOCK);
+            entries.add(MOIST_BRAIN_CORAL_BLOCK);
+            entries.add(MOIST_BUBBLE_CORAL_BLOCK);
+            entries.add(MOIST_FIRE_CORAL_BLOCK);
+            entries.add(MOIST_HORN_CORAL_BLOCK);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.add(SQUID_EGGS);
         });
     }
 }

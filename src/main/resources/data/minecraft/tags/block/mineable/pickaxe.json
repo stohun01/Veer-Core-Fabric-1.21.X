@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "veercore:wrought_iron_block",
-    "veercore:wrought_iron_corner"
+    "veercore:wrought_iron_corner",
+    "veercore:moist_tube_coral_block",
+    "veercore:moist_brain_coral_block",
+    "veercore:moist_bubble_coral_block",
+    "veercore:moist_fire_coral_block",
+    "veercore:moist_horn_coral_block"
   ]
 }

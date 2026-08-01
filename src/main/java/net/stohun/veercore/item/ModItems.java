@@ -11,6 +11,10 @@ import net.stohun.veercore.VeerCore;
 public class ModItems {
     public static final Item ACID = registerItem("acid", new Item(new Item.Settings()));
     public static final Item RAW_EMERALD = registerItem("raw_emerald", new Item(new Item.Settings()));
+    public static final Item WHETSTONE = registerItem("whetstone", new Item(new Item.Settings()));
+    public static final Item ZAPIS = registerItem("zapis", new Item(new Item.Settings()));
+    public static final Item CHISEL = registerItem("chisel", new Item(new Item.Settings().maxDamage(250)));
+
     public static final Item COLOR_ICON = registerItem("color_icon", new Item(new Item.Settings()));
     public static final Item FOOD_ICON = registerItem("food_icon", new Item(new Item.Settings()));
     public static final Item GEAR_ICON = registerItem("gear_icon", new Item(new Item.Settings()));
@@ -32,6 +36,12 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(ACID);
             entries.add(RAW_EMERALD);
+            entries.add(WHETSTONE);
+            entries.add(ZAPIS);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.add(CHISEL);
         });
     }
 }

@@ -9,12 +9,29 @@
   "item.veercore.time_icon": "Time",
   "item.veercore.trade_icon": "Trade",
   "item.veercore.mob_icon": "Mob",
+
   "item.veercore.acid": "Acid",
   "item.veercore.raw_emerald": "Raw Emerald",
+  "item.veercore.whetstone": "Whetstone",
+  "item.veercore.zapis": "Zapis",
+
+  "item.veercore.chisel": "Chisel",
+
   "block.veercore.dough_block": "Dough Block",
   "block.veercore.apple_corner": "Apple Block",
   "block.veercore.wrought_iron_block": "Wrought Iron Block",
   "block.veercore.wrought_iron_corner": "Wrought Iron Corner",
+
+  "block.veercore.squid_eggs": "Squid Eggs",
+
+  "block.veercore.moist": "Squid Eggs",
+
+  "block.veercore.moist_tube_coral_block": "Moist Tube Coral Block",
+  "block.veercore.moist_brain_coral_block": "Moist Brain Coral Block",
+  "block.veercore.moist_bubble_coral_block": "Moist Bubble Coral Block",
+  "block.veercore.moist_fire_coral_block": "Moist Fire Coral Block",
+  "block.veercore.moist_horn_coral_block": "Moist Horn Coral Block",
+
   "block.veercore.pale_oak_planks_column": "Pale Oak Column",
   "block.veercore.maple_planks_column": "Maple Column",
   "block.veercore.palm_planks_column": "Palm Column",
