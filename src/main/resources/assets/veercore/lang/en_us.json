@@ -9,11 +9,15 @@
   "item.veercore.time_icon": "Time",
   "item.veercore.trade_icon": "Trade",
   "item.veercore.mob_icon": "Mob",
+  "item.veercore.group_icon": "Group",
+  "item.veercore.info_icon": "Info",
+
 
   "item.veercore.acid": "Acid",
   "item.veercore.raw_emerald": "Raw Emerald",
   "item.veercore.whetstone": "Whetstone",
   "item.veercore.zapis": "Zapis",
+  "item.veercore.blank_enchanted_book": "Blank Enchanted Book",
 
   "item.veercore.chisel": "Chisel",
 

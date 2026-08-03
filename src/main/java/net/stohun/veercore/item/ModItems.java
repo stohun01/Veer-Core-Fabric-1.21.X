@@ -14,6 +14,7 @@ public class ModItems {
     public static final Item WHETSTONE = registerItem("whetstone", new Item(new Item.Settings()));
     public static final Item ZAPIS = registerItem("zapis", new Item(new Item.Settings()));
     public static final Item CHISEL = registerItem("chisel", new Item(new Item.Settings().maxDamage(250)));
+    public static final Item BLANK_ENCHANTED_BOOK = registerItem("blank_enchanted_book", new Item(new Item.Settings()));
 
     public static final Item COLOR_ICON = registerItem("color_icon", new Item(new Item.Settings()));
     public static final Item FOOD_ICON = registerItem("food_icon", new Item(new Item.Settings()));
@@ -25,6 +26,9 @@ public class ModItems {
     public static final Item TIME_ICON = registerItem("time_icon", new Item(new Item.Settings()));
     public static final Item TRADE_ICON = registerItem("trade_icon", new Item(new Item.Settings()));
     public static final Item MOB_ICON = registerItem("mob_icon", new Item(new Item.Settings()));
+
+    public static final Item GROUP_ICON = registerItem("group_icon", new Item(new Item.Settings()));
+    public static final Item INFO_ICON = registerItem("info_icon", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(VeerCore.MOD_ID, name), item);
@@ -38,6 +42,7 @@ public class ModItems {
             entries.add(RAW_EMERALD);
             entries.add(WHETSTONE);
             entries.add(ZAPIS);
+            entries.add(BLANK_ENCHANTED_BOOK);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
